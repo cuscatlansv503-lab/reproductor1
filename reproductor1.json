@@ -1,0 +1,163 @@
+{
+  "name": "Reproductor Ininterrumpido",
+  "language": "es",
+  "viewport": {
+    "width": "device-width",
+    "initialScale": 1.0
+  },
+  "styles": {
+    "backgroundColor": "#000000",
+    "textColor": "#C2FF05",
+    "overflow": "hidden",
+    "container": {
+      "width": "100%",
+      "height": "100%",
+      "position": "relative"
+    },
+    "targetSelector": "#video_player"
+  },
+  "dependencies": {
+    "jquery": {
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js",
+      "globalVariable": "jQuery",
+      "namespaceAssigned": "window.OTTera"
+    },
+    "kalturaPlaykit": {
+      "url": "https://cdnapisec.kaltura.com/p/513551/sp/51355100/embedPlaykitJs/uiconf_id/44072632/partner_id/513551/preferredBitrate/500",
+      "retryDelayMs": 3000
+    }
+  },
+  "codesEmbed": {
+    "debug": 0,
+    "api": "https://api-ott.freetv.com",
+    "initialSeekCompleted": false,
+    "initialSeekTime": 0,
+    "allowAnonymousResume": false,
+    "params": {
+      "version": "15.0",
+      "device_type": "desktop",
+      "platform": "web",
+      "partner": "internal",
+      "language": "es",
+      "connection": "wifi",
+      "enable_floating": "false",
+      "div_id": "video_player",
+      "content_page_url": "https%3A%2F%2Fvideo.freetv.com%2F%3Fsection%3Depgsection",
+      "image_width": "1280",
+      "max_bitrate": "10000",
+      "id": "23372",
+      "auto_play": {
+        "desktop": "true",
+        "mobile": "true"
+      },
+      "mute": "true",
+      "allow_muted_autoplay": "true",
+      "timestamp": "1793760500",
+      "timezone": "-0500"
+    },
+    "skipCues": [],
+    "showInfo": false,
+    "showID": null,
+    "markerCues": {},
+    "states": {
+      "ads": {
+        "tracking": {
+          "current": false
+        }
+      },
+      "content": {
+        "view": false,
+        "quartilesFired": [false, false, false]
+      },
+      "video": {
+        "start": false,
+        "key": "play_ads_disabled"
+      },
+      "floatingPlayer": {
+        "lowerEdge": false
+      }
+    }
+  },
+  "playerConfig": {
+    "targetId": "video_player",
+    "logLevel": "ERROR",
+    "provider": {
+      "partnerId": "513551",
+      "uiConfId": "44072632"
+    },
+    "playback": {
+      "autoplay": true,
+      "allowMutedAutoPlay": true,
+      "muted": true,
+      "playsinline": true,
+      "loop": true,
+      "captionsDisplay": false,
+      "preferNative": {
+        "hls": false
+      }
+    },
+    "plugins": {}
+  },
+  "stream": {
+    "baseUrl": "http://190.61.101.11:7050/play/a06y/index.m3u8?hls",
+    "cacheBusterParam": "_t",
+    "useTimestampCacheBuster": true,
+    "poster": "https://img1.static-ottera.com/prod/oly/linear_channel/thumbnails/widescreen/1280x720/accion_thumbnail_16x9_1.jpg",
+    "hls": [
+      {
+        "mimetype": "application/x-mpegURL"
+      }
+    ]
+  },
+  "resilience": {
+    "screenWakeLock": {
+      "enabled": true,
+      "type": "screen",
+      "reacquireOnVisible": true
+    },
+    "visibilityChange": {
+      "resumeIfPaused": true
+    },
+    "networkOnline": {
+      "reloadStream": true,
+      "force": true
+    },
+    "events": {
+      "onPause": {
+        "enabled": true,
+        "delayMs": 300,
+        "fallbackMutedPlay": true
+      },
+      "onEnded": {
+        "enabled": true,
+        "forceReload": true
+      },
+      "onError": {
+        "enabled": true,
+        "retryDelayMs": 2000,
+        "forceReload": true
+      },
+      "onStalled": {
+        "enabled": true,
+        "incrementStallCount": true
+      }
+    },
+    "nativeVideoGuard": {
+      "pollIntervalMs": 500,
+      "attributes": {
+        "playsinline": "",
+        "autoplay": "",
+        "loop": true
+      }
+    },
+    "watchdog": {
+      "enabled": true,
+      "intervalMs": 3000,
+      "maxStallTicks": 3,
+      "estimatedStallDurationMs": 9000,
+      "forceReloadOnStall": true
+    },
+    "reloadFallbackDelayMs": 2500,
+    "loadErrorRetryDelayMs": 3000
+  }
+}
